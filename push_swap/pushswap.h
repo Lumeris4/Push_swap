@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/09 16:52:16 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/09 21:54:31 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 # define PUSHSWAP_H
 
 # include "libft/libft.h"
+# include <stdlib.h>
+
+int	check_double(char **argv);
+int	check_letter_in_number(char **argv);
 
 #endif

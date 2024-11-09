@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errors.c                                     :+:      :+:    :+:   */
+/*   check_letter_in_number.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:40:30 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/09 21:32:21 by lelanglo         ###   ########.fr       */
+/*   Created: 2024/11/09 21:32:48 by lelanglo          #+#    #+#             */
+/*   Updated: 2024/11/09 22:29:24 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	check_double(char **argv)
+static int	ft_isdigit_str(char *str)
 {
 	int	i;
-	int	j;
-	int	argv_temp;
-	int	argv_temp2;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (str[i])
 	{
-		argv_temp = ft_atoi(argv[i]);
-		j = i + 1;
-		while (argv[j])
-		{
-			argv_temp2 = ft_atoi(argv[j]);
-			if (argv_temp2 == argv_temp)
-				return (0);
-			j++;
-		}
+		if (!ft_isdigit(str[i]))
+			return (0);
 		i++;
 	}
 	return (1);
 }
-// #include <stdio.h>
-// int main(int argc, char **argv)
+
+int	check_letter_in_number(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (!ft_isdigit_str(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+// int main(int argc,char **argv)
 // {
 // 	if (argc < 2)
 // 		return 0;
-// 	printf("%d", check_double(argv));
+// 	ft_printf("%d",check_letter_in_number(argv));
 // 	return 0;
 // }
