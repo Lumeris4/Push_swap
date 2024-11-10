@@ -1,41 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_letter_in_number.c                           :+:      :+:    :+:   */
+/*   too_long.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 21:32:48 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/10 11:13:12 by lelanglo         ###   ########.fr       */
+/*   Created: 2024/11/10 11:12:28 by lelanglo          #+#    #+#             */
+/*   Updated: 2024/11/10 11:34:51 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-static int	ft_isdigit_str(char *str)
+static long	ft_atoi_long(const char *nptr)
 {
-	int	i;
+	int		i;
+	long	result;
+	int		sign;
 
 	i = 0;
-	if (str[0] == '-' && ft_isdigit(str[1]))
+	result = 0;
+	sign = 1;
+	while ((nptr[i] >= 7 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
-	while (str[i])
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (!ft_isdigit(str[i]))
-			return (0);
+		if (nptr[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (1);
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		result = result * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }
 
-int	check_letter_in_number(char **argv)
+int	too_long(char **argv)
 {
-	int	i;
+	int		i;
+	long	argv_temp;
 
 	i = 1;
 	while (argv[i])
 	{
-		if (!ft_isdigit_str(argv[i]))
+		argv_temp = ft_atoi_long(argv[i]);
+		if (argv_temp <= INT_MIN || argv_temp >= INT_MAX)
 			return (0);
 		i++;
 	}
@@ -46,6 +57,6 @@ int	check_letter_in_number(char **argv)
 // {
 // 	if (argc < 2)
 // 		return 0;
-// 	ft_printf("%d",check_letter_in_number(argv));
+// 	ft_printf("%d", too_long(argv));
 // 	return 0;
 // }

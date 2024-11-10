@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/10 12:13:36 by lelanglo         ###   ########.fr       */
+/*   Created: 2024/11/10 12:09:08 by lelanglo          #+#    #+#             */
+/*   Updated: 2024/11/10 12:12:34 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <limits.h>
-
-int	check_double(char **argv);
-int	check_letter_in_number(char **argv);
-int	too_long(char **argv);
-int	check_errors(char **argv);
-
-#endif
+void	print_list(t_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("%d -> ", *(int *)lst->content);
+		lst = lst->next;
+	}
+	ft_printf("NULL\n");
+}

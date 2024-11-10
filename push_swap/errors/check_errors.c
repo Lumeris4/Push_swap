@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:30 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/09 21:32:21 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/10 12:13:55 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,18 @@ int	check_double(char **argv)
 	}
 	return (1);
 }
+
+int	check_errors(char **argv)
+{
+	if (!check_letter_in_number(argv) || !too_long(argv) || !check_double(argv))
+		return (0);
+	return (1);
+}
 // #include <stdio.h>
 // int main(int argc, char **argv)
 // {
 // 	if (argc < 2)
 // 		return 0;
-// 	printf("%d", check_double(argv));
+// 	printf("%d", check_errors(argv));
 // 	return 0;
 // }
