@@ -46,7 +46,7 @@ int	too_long(char **argv)
 	while (argv[i])
 	{
 		argv_temp = ft_atoi_long(argv[i]);
-		if (argv_temp <= INT_MIN || argv_temp >= INT_MAX)
+		if (argv_temp < INT_MIN || argv_temp > INT_MAX)
 			return (0);
 		i++;
 	}
