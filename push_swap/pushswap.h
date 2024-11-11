@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/10 12:13:36 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/11 15:35:36 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@
 # include <stdlib.h>
 # include <limits.h>
 
-int	check_double(char **argv);
-int	check_letter_in_number(char **argv);
-int	too_long(char **argv);
-int	check_errors(char **argv);
-
+int		check_double(char **argv);
+int		check_letter_in_number(char **argv);
+int		too_long(char **argv);
+int		check_errors(char **argv);
+void	rra(t_list **stack_a, int solo);
+void	rrb(t_list **stack_b, int solo);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack_a, int solo);
+void	sb(t_list **stack_b, int solo);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a, int solo);
+void	rb(t_list **stack_b, int solo);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
 #endif
