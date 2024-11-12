@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/11 15:35:36 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:01:15 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,7 @@ void	rb(t_list **stack_b, int solo);
 void	rr(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
+void	init_stacka(t_list **stack_a, char **argv);
+int		is_sort(t_list **stack_a);
+void	mini_sort(t_list **stack_a);
 #endif

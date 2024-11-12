@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:05:39 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/11 14:06:47 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:13:07 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_list **stack_a, int solo)
 {
 	t_list	*first;
 	t_list	*second;
-	char	*tmp;
+	int		*tmp;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -33,7 +33,7 @@ void	sb(t_list **stack_b, int solo)
 {
 	t_list	*first;
 	t_list	*second;
-	char	*tmp;
+	int		*tmp;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
@@ -53,23 +53,24 @@ void	ss(t_list **stack_a, t_list **stack_b)
 	ft_printf("ss\n");
 }
 
-// int main(void)
-// {
-//     t_list *stack_a = NULL;
+int main(void)
+{
+    t_list *stack_a = NULL;
 
-//     int a = 1, b = 2, c = 3, d = 4;
-//     ft_lstadd_front(&stack_a, ft_lstnew(&d));
-//     ft_lstadd_front(&stack_a, ft_lstnew(&c));
-//     ft_lstadd_front(&stack_a, ft_lstnew(&b));
-//     ft_lstadd_front(&stack_a, ft_lstnew(&a));
+    int a = 1, b = 2, c = 3, d = 4;
+    ft_lstadd_front(&stack_a, ft_lstnew(&d));
+    ft_lstadd_front(&stack_a, ft_lstnew(&c));
+    ft_lstadd_front(&stack_a, ft_lstnew(&b));
+    ft_lstadd_front(&stack_a, ft_lstnew(&a));
 
-//     ft_printf("Avant appel de sa:\n");
-//     print_list(stack_a);
+    ft_printf("Avant appel de sa:\n");
+    print_list(stack_a);
 
-//     sa(&stack_a, 1);
+    sa(&stack_a, 1);
 
-//     ft_printf("Apres appel de sa:\n");
-//     print_list(stack_a);
+    ft_printf("Apres appel de sa:\n");
+    print_list(stack_a);
+	ft_lstclear(&stack_a);
 
-//     return 0;
-// }
+    return 0;
+}
