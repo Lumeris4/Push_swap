@@ -42,7 +42,7 @@ void	move_to_a(t_stack *a, t_stack *b)
 	while (b->size > 0)
 	{
 		ft_max(b);
-		steps = get_steps_to_max(b);
+		steps = get_steps_to_min(b);
 
 		if (steps <= b->size / 2)
 			while (steps--)
