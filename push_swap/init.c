@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:36:47 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/13 11:08:43 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:04:07 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ void	init_stacka(t_list **stack_a, char **argv)
 		ft_lstadd_back(stack_a, ft_lstnew(argv_temp));
 		i++;
 	}
+}
+
+void	init_tstack(t_stack *stack, char name, t_list **stack_a)
+{
+	stack->top = *stack_a;
+	stack->size = ft_lstsize(*stack_a);
+	stack->name = name;
+	stack->min_node = NULL;
+	stack->min_value = 0;
+	stack->max_node = NULL;
+	stack->max_value = 0;
 }
 
 int	is_sort(t_list **stack_a)

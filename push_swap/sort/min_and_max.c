@@ -6,22 +6,11 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 08:43:01 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/13 11:05:36 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:03:49 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	init_tstack(t_stack *stack, char name, t_list **stack_a)
-{
-	stack->top = *stack_a;
-	stack->size = ft_lstsize(*stack_a);
-	stack->name = name;
-	stack->min_node = NULL;
-	stack->min_value = 0;
-	stack->max_node = NULL;
-	stack->max_value = 0;
-}
 
 void	ft_min(t_stack *stack)
 {
