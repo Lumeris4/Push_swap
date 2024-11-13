@@ -1,83 +1,69 @@
-void move_to_b(t_stack *stack_a, t_stack *stack_b)
+#include "pushswap.h"
+
+void	swap(t_stack *a, t_stack *b)
 {
-    ft_min(stack_a);
-    ft_max(stack_a);
-    if (stack_a->top == stack_a->min_node)
-        pb(&(stack_a->top), &(stack_b->top));
-    else
-    {
-        int steps = get_steps_to_min(stack_a);
-        if (steps <= stack_a->size / 2)
-            rotate_a(stack_a, steps);
-        else
-            reverse_rotate_a(stack_a, stack_a->size - steps);
-        pb(&(stack_a->top), &(stack_b->top));
-    }
+	if (a->top && a->top->next && *(int*)a->top->content > *(int*)a->top->next->content)
+		sa(&(a->top), 1);
+	if (b->top && b->top->next && *(int*)b->top->content < *(int*)b->top->next->content)
+		sb(&(b->top), 1);
 }
 
-void rotate_a(t_stack *stack_a, int steps)
+void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
 {
-    if (steps > 0)
-    {
-        ra(&(stack_a->top), 1);
-        rotate_a(stack_a, steps - 1);
-    }
+	int	i;
+	int	steps;
+
+	while (a->size > 0)
+	{
+		i = 0;
+		while (i < chunk_size && a->size > 0)
+		{
+			ft_min(a);
+			steps = get_steps_to_min(a);
+
+			if (steps <= a->size / 2)
+				while (steps--)
+					ra(&(a->top), 1);
+			else
+				while (steps++ < a->size)
+					rra(&(a->top), 1);
+
+			swap(a, b);
+			pb(&(a->top), &(b->top));
+			i++;
+		}
+	}
 }
 
-void reverse_rotate_a(t_stack *stack_a, int steps)
+void	move_to_a(t_stack *a, t_stack *b)
 {
-    if (steps > 0)
-    {
-        rra(&(stack_a->top), 1);
-        reverse_rotate_a(stack_a, steps - 1);
-    }
+	int	steps;
+
+	while (b->size > 0)
+	{
+		ft_max(b);
+		steps = get_steps_to_max(b);
+
+		if (steps <= b->size / 2)
+			while (steps--)
+				rb(&(b->top), 1);
+		else
+			while (steps++ < b->size)
+				rrb(&(b->top), 1);
+
+		swap(a, b);
+		pa(&(b->top), &(a->top));
+	}
 }
 
-void move_to_a(t_stack *stack_a, t_stack *stack_b)
+void	turkish_sort(t_stack *a, t_stack *b)
 {
-    ft_min(stack_b);
-    if (stack_b->top == stack_b->min_node)
-        pa(&(stack_b->top), &(stack_a->top));
-    else
-    {
-        int steps = get_steps_to_min(stack_b);
-        if (steps <= stack_b->size / 2)
-            rotate_b(stack_b, steps);
-        else
-            reverse_rotate_b(stack_b, stack_b->size - steps);
-        pa(&(stack_b->top), &(stack_a->top));
-    }
-}
+	int	chunk_size;
 
-void rotate_b(t_stack *stack_b, int steps)
-{
-    if (steps > 0)
-    {
-        rb(&(stack_b->top), 1);
-        rotate_b(stack_b, steps - 1);
-    }
-}
+	chunk_size = (a->size / 7) + 1;
 
-void reverse_rotate_b(t_stack *stack_b, int steps)
-{
-    if (steps > 0)
-    {
-        rrb(&(stack_b->top), 1);
-        reverse_rotate_b(stack_b, steps - 1);
-    }
-}
+	move_to_b(a, b, chunk_size);
 
-void turkish_sort(t_stack *stack_a, t_stack *stack_b)
-{
-    if (!is_sort(&(stack_a->top)))
-    {
-        move_to_b(stack_a, stack_b);
-        turkish_sort(stack_a, stack_b);
-    }
-    else
-    {
-        while (stack_b->size > 0)
-            move_to_a(stack_a, stack_b);
-    }
+	while (b->size > 0)
+		move_to_a(a, b);
 }
-
