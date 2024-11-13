@@ -73,8 +73,6 @@ void turkish_sort(t_stack *stack_a, t_stack *stack_b)
     {
         move_to_b(stack_a, stack_b);
         if (stack_b->size <= 10)
-            insertion_sort(&(stack_b->top));
-        else
             turkish_sort(stack_a, stack_b);
     }
     else
