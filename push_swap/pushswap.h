@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/13 11:01:13 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:02:46 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 {
 	t_list	*top;
 	int		size;
-	char	name;
 	t_list	*min_node;
 	int		min_value;
 	t_list	*max_node;
@@ -48,5 +47,5 @@ int		is_sort(t_list **stack_a);
 void	mini_sort(t_list **stack_a);
 void	ft_max(t_stack *stack);
 void	ft_min(t_stack *stack);
-void	init_tstack(t_stack *stack, char name, t_list **stack_a);
+void	init_tstack(t_stack *stack, t_list **stack_a);
 #endif

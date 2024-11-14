@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:42 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/13 14:52:00 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:03:21 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	initialize_stacks(t_list **stack_a, t_stack **stack_a_stack,
 	*stack_a_stack = malloc(sizeof(t_stack));
 	if (!(*stack_a_stack))
 		return (1);
-	init_tstack(*stack_a_stack, 'A', stack_a);
+	init_tstack(*stack_a_stack, stack_a);
 	return (0);
 }
 
