@@ -8,7 +8,7 @@ void	swap(t_stack *a, t_stack *b)
 		sb(&(b->top), 1);
 }
 
-void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
+void	move_to_b(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	steps;
