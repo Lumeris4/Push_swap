@@ -2,9 +2,9 @@
 
 void	swap(t_stack *a, t_stack *b)
 {
-	if (a->top && a->top->next && *(int*)a->top->content > *(int*)a->top->next->content)
+	if (a->top && a->top->next && *(int*)a->top->content < *(int*)a->top->next->content)
 		sa(&(a->top), 1);
-	if (b->top && b->top->next && *(int*)b->top->content < *(int*)b->top->next->content)
+	if (b->top && b->top->next && *(int*)b->top->content > *(int*)b->top->next->content)
 		sb(&(b->top), 1);
 }
 
