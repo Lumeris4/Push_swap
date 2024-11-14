@@ -16,7 +16,7 @@ void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
 	while (a->size > 0)
 	{
 		i = 0;
-		while (i < chunk_size && a->size > 0)
+		while (!is_sort(stack_a))
 		{
 			ft_max(a);
 			steps = get_steps_to_max(a);
@@ -58,11 +58,8 @@ void	move_to_a(t_stack *a, t_stack *b)
 
 void	turkish_sort(t_stack *a, t_stack *b)
 {
-	int	chunk_size;
 
-	chunk_size = (a->size / 7) + 1;
-
-	move_to_b(a, b, chunk_size);
+	move_to_b(a, b);
 
 	while (b->size > 0)
 		move_to_a(a, b);
