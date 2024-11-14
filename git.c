@@ -12,21 +12,24 @@ void	move_to_b(t_stack *a, t_stack *b)
 {
 	int	steps;
 
-	while (!is_sort(stack_a)
+	while (!is_sort(a))
 	{
 		ft_max(a);
 		steps = get_steps_to_max(a);
+
 		if (steps <= a->size / 2)
+		{
 			while (steps--)
 				ra(&(a->top), 1);
+		}
 		else
+		{
 			while (steps++ < a->size)
 				rra(&(a->top), 1);
+		}
 
 		swap(a, b);
 		pb(&(a->top), &(b->top));
-			
-		
 	}
 }
 
@@ -40,11 +43,15 @@ void	move_to_a(t_stack *a, t_stack *b)
 		steps = get_steps_to_min(b);
 
 		if (steps <= b->size / 2)
+		{
 			while (steps--)
 				rb(&(b->top), 1);
+		}
 		else
+		{
 			while (steps++ < b->size)
 				rrb(&(b->top), 1);
+		}
 
 		swap(a, b);
 		pa(&(b->top), &(a->top));
@@ -53,7 +60,6 @@ void	move_to_a(t_stack *a, t_stack *b)
 
 void	turkish_sort(t_stack *a, t_stack *b)
 {
-
 	move_to_b(a, b);
 
 	while (b->size > 0)
