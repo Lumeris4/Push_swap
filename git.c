@@ -18,8 +18,8 @@ void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
 		i = 0;
 		while (i < chunk_size && a->size > 0)
 		{
-			ft_min(a);
-			steps = get_steps_to_min(a);
+			ft_max(a);
+			steps = get_steps_to_max(a);
 
 			if (steps <= a->size / 2)
 				while (steps--)
