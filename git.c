@@ -10,28 +10,23 @@ void	swap(t_stack *a, t_stack *b)
 
 void	move_to_b(t_stack *a, t_stack *b)
 {
-	int	i;
 	int	steps;
 
-	while (a->size > 0)
+	while (!is_sort(stack_a)
 	{
-		i = 0;
-		while (!is_sort(stack_a))
-		{
-			ft_max(a);
-			steps = get_steps_to_max(a);
+		ft_max(a);
+		steps = get_steps_to_max(a);
+		if (steps <= a->size / 2)
+			while (steps--)
+				ra(&(a->top), 1);
+		else
+			while (steps++ < a->size)
+				rra(&(a->top), 1);
 
-			if (steps <= a->size / 2)
-				while (steps--)
-					ra(&(a->top), 1);
-			else
-				while (steps++ < a->size)
-					rra(&(a->top), 1);
-
-			swap(a, b);
-			pb(&(a->top), &(b->top));
-			i++;
-		}
+		swap(a, b);
+		pb(&(a->top), &(b->top));
+			
+		
 	}
 }
 
