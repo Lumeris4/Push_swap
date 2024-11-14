@@ -13,10 +13,10 @@ void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
 	int	i;
 	int	steps;
 
-	while (a->size > 0)
+	while (a->size > 0 && !is_sort(a))
 	{
 		i = 0;
-		while (i < chunk_size && a->size > 0)
+		while (i < chunk_size && a->size > 0 && !is_sort(a))
 		{
 			ft_min(a);
 			steps = get_steps_to_min(a);
