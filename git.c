@@ -2,9 +2,9 @@
 
 void	swap(t_stack *a, t_stack *b)
 {
-	if (a->top && a->top->next && *(int*)a->top->content < *(int*)a->top->next->content)
+	if (a->top && a->top->next && *(int*)a->top->content > *(int*)a->top->next->content)
 		sa(&(a->top), 1);
-	if (b->top && b->top->next && *(int*)b->top->content > *(int*)b->top->next->content)
+	if (b->top && b->top->next && *(int*)b->top->content < *(int*)b->top->next->content)
 		sb(&(b->top), 1);
 }
 
@@ -16,10 +16,10 @@ void	move_to_b(t_stack *a, t_stack *b, int chunk_size)
 	while (a->size > 0)
 	{
 		i = 0;
-		while (!is_sort(stack_a))
+		while (i < chunk_size && a->size > 0)
 		{
-			ft_max(a);
-			steps = get_steps_to_max(a);
+			ft_min(a);
+			steps = get_steps_to_min(a);
 
 			if (steps <= a->size / 2)
 				while (steps--)
@@ -41,8 +41,8 @@ void	move_to_a(t_stack *a, t_stack *b)
 
 	while (b->size > 0)
 	{
-		ft_min(b);
-		steps = get_steps_to_min(b);
+		ft_max(b);
+		steps = get_steps_to_max(b);
 
 		if (steps <= b->size / 2)
 			while (steps--)
@@ -58,8 +58,11 @@ void	move_to_a(t_stack *a, t_stack *b)
 
 void	turkish_sort(t_stack *a, t_stack *b)
 {
+	int	chunk_size;
 
-	move_to_b(a, b);
+	chunk_size = (a->size / 7) + 1;
+
+	move_to_b(a, b, chunk_size);
 
 	while (b->size > 0)
 		move_to_a(a, b);
