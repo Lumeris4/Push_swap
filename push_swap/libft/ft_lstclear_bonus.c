@@ -24,7 +24,7 @@ void	ft_lstclear(t_list **lst, void (*del)(int))
 	{
 		parcours2 = parcours;
 		parcours = parcours->next;
-		//del(parcours2->content);
+		del(parcours2->content);
 		free(parcours2);
 	}
 	*lst = NULL;

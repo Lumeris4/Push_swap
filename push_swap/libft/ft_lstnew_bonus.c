@@ -21,14 +21,13 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	lst->content = content;
 	lst->next = NULL;
-	lst->min_node = NULL;   
-		lst->max_node = NULL;   
-	lst->size = 0;          
-	lst->min_value = 0;     
-	lst->max_value = 0;     
+	lst->min_node = NULL;
+	lst->max_node = NULL;
+	lst->size = 0;
+	lst->min_value = 0;
+	lst->max_value = 0;
 	return (lst);
 }
-
 
 /*
 #include <stdio.h>

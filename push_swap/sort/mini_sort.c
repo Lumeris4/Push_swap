@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:28:42 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/16 15:14:24 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:18:35 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	mini_sort(t_list **stack_a)
 {
-	int	a;
-	int	b;
-	t_list *clist;
-	int	c;
+	int		a;
+	int		b;
+	t_list	*clist;
+	int		c;
 
 	a = (*stack_a)->content;
 	b = (*stack_a)->next->content;

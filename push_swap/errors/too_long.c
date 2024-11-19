@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:12:28 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/10 11:34:51 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:21:38 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ static long	ft_atoi_long(const char *nptr)
 	return (result * sign);
 }
 
-int	too_long(char **argv)
+int	too_long(char **argv, int argc)
 {
 	int		i;
 	long	argv_temp;
 
-	i = 1;
+	if (argc == 2)
+		i = 0;
+	else
+		i = 1;
 	while (argv[i])
 	{
 		argv_temp = ft_atoi_long(argv[i]);

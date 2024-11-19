@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:05:42 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/18 12:06:02 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:16:14 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,9 @@ void	pb(t_list **stack_a, t_list **stack_b)
 //     print_list(stack_b);
 
 //     pa(&stack_a, &stack_b);
-
+// 	pa(&stack_a, &stack_b);
 //     ft_printf("Après pa:\n");
 //     print_list(stack_a);
 //     print_list(stack_b);
-//     ft_lstclear(&stack_a, free);
-//     ft_lstclear(&stack_b, free);
-
 //     return 0;
 // }

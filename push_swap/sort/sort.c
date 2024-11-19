@@ -6,70 +6,84 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/18 14:48:56 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:36:49 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	move_to_b(t_list **a, t_list **b)
+void	sort_b(t_list **b)
 {
-	int	steps;
 	int	size;
-
-	while (!is_sort(a))
-	{
-		ft_min(a);
-		steps = get_steps_to_min(a);
-		size = ft_lstsize(*a);
-		if (steps <= size / 2)
-		{
-			while (steps--)
-				ra(a, 1);
-		}
-		else
-		{
-			while (steps++ < size)
-				rra(a, 1);
-		}
-		pb(a, b);
-		if (*b && (*b)->next && (*b)->content > (*b)->next->content)
-			sb(b, 1);
-	}
-}
-
-static void	move_to_a(t_list **a, t_list **b)
-{
 	int	steps;
-	int	size;
 
-	while (*b)
+	ft_max(b);
+	steps = 0;
+	size = ft_lstsize(*b);
+	if (!is_sort_descending(b))
 	{
-		ft_max(b);
 		steps = get_steps_to_max(b);
-		size = ft_lstsize(*b);
 		if (steps <= size / 2)
 		{
 			while (steps--)
 				rb(b, 1);
 		}
-		else
-		{
-			while (steps++ < size)
-				rrb(b, 1);
-		}
-		pa(a, b);
-		if (*a && (*a)->next && (*a)->content > (*a)->next->content)
-			sa(a, 1);
+	}
+	else
+	{
+		while (steps++ < size)
+			rrb(b, 1);
 	}
 }
 
-void	turkish_sort(t_list **a, t_list **b)
+void	sort_a(t_list **a)
 {
-	move_to_b(a, b);
-	move_to_a(a, b);
+	int	size;
+	int	steps;
+
+	ft_min(b);
+	steps = 0;
+	size = ft_lstsize(*a);
+	if (!is_sort(a))
+	{
+		steps = get_steps_to_min(a);
+		if (steps <= size / 2)
+		{
+			while (steps--)
+				ra(b, 1);
+		}
+	}
+	else
+	{
+		while (steps++ < size)
+			rra(b, 1);
+	}
 }
 
+int	find_closest_upper(t_list **stack_a, t_list **stack_b)
+{
+	int		first;
+	t_list	*current;
+	int		closest_upper;
 
+	first = (*b)->content;
+	current = *a;
+	closest_upper = 2147483647;
+	while (current)
+	{
+		if (current->content > first && current->content < closest_upper)
+			closest_upper = current->content;
+		current = current->next;
+	}
+	return (closest_upper);
+}
 
+int	can_push(t_list **stack_a, t_list **stack_b)
+{
+	int	closest;
 
+	closest = find_closest_upper(stack_a, stack_b);
+	if (closest == (*a)->content)
+		return (1);
+	return (0);
+}
