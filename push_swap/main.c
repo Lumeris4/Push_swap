@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:42 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 11:08:22 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:31:46 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	if (!check_errors(argv, argc))

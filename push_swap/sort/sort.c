@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 08:56:29 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:21:18 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	sort_b(t_list **b)
 			while (steps--)
 				rb(b, 1);
 		}
-	}
-	else
-	{
-		while (steps++ < size)
-			rrb(b, 1);
+		else
+		{
+			while (steps++ < size)
+				rrb(b, 1);
+		}
 	}
 }
 
@@ -44,7 +44,7 @@ void	sort_a(t_list **a)
 	ft_min(a);
 	steps = 0;
 	size = ft_lstsize(*a);
-	if (!is_sort(a))
+	while (!is_sort(a))
 	{
 		steps = get_steps_to_min(a);
 		if (steps <= size / 2)
@@ -52,6 +52,26 @@ void	sort_a(t_list **a)
 			while (steps--)
 				ra(a, 1);
 		}
+		else
+		{
+			while (steps++ < size)
+				rra(a, 1);
+		}
+	}
+}
+
+void	value_on_top(t_list **a, int value)
+{
+	int	size;
+	int	steps;
+
+	steps = 0;
+	size = ft_lstsize(*a);
+	steps = get_steps_to_value(a, value);
+	if (steps <= size / 2)
+	{
+		while (steps--)
+			ra(a, 1);
 	}
 	else
 	{
@@ -78,12 +98,9 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 	return (closest_upper);
 }
 
-int	can_push(t_list **stack_a, t_list **stack_b)
+int	can_push(t_list **stack_a, int value)
 {
-	int	closest;
-
-	closest = find_closest_upper(stack_a, stack_b);
-	if (closest == (*stack_a)->content)
+	if (value == (*stack_a)->content)
 		return (1);
 	return (0);
 }

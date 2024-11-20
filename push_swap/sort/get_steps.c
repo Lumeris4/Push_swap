@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 14:55:14 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/18 14:39:07 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:31:06 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,25 @@ int	get_steps_to_min(t_list **b)
 	while (b_temp)
 	{
 		if (b_temp->content == (*b)->min_value)
+			break ;
+		count++;
+		b_temp = b_temp->next;
+	}
+	return (count);
+}
+
+int	get_steps_to_value(t_list **b, int value)
+{
+	t_list	*b_temp;
+	int		count;
+
+	if (!b || !*b)
+		return (0);
+	b_temp = *b;
+	count = 0;
+	while (b_temp)
+	{
+		if (b_temp->content == value)
 			break ;
 		count++;
 		b_temp = b_temp->next;

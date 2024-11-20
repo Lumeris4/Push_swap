@@ -6,11 +6,33 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:48:44 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 11:08:58 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:31:30 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	turkish_sort_code(t_list **a, t_list **b)
+{
+	int	cheapest;
+	int	closest;
+
+	while (ft_lstsize(*a) != 3)
+	{
+		cheapest = find_the_cheapest(a, b);
+		value_on_top(a, cheapest);
+		pb(a, b);
+		rrb(b, 1);
+	}
+	while (*b)
+	{
+		closest = find_closest_upper(a, b);
+		while (!can_push(a, closest))
+			rra(a, 1);
+		pa(a, b);
+	}
+	rra(a, 1);
+}
 
 void	turkish_sort(t_list **a, t_list **b)
 {
@@ -22,5 +44,9 @@ void	turkish_sort(t_list **a, t_list **b)
 	else if (ft_lstsize(*a) == 3)
 		mini_sort(a);
 	else
-		ft_printf("pas fait");
+	{
+		pb(a, b);
+		pb(a, b);
+		turkish_sort_code(a, b);
+	}
 }
