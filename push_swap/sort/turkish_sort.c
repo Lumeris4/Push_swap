@@ -22,14 +22,14 @@ void	turkish_sort_code(t_list **a, t_list **b)
 		cheapest = find_the_cheapest(a, b);
 		value_on_top(a, cheapest);
 		pb(a, b);
-		rrb(b, 1);
+		sort_b(b);
 	}
 	mini_sort(a);
 	while (*b)
 	{
 		closest = find_closest_upper(a, b);
-		while (!can_push(a, closest))
-			rra(a, 1);
+		if (!can_push(a, closest))
+			value_on_top(b, closest);
 		pa(a, b);
 	}
 	rra(a, 1);
