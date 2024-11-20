@@ -95,7 +95,9 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 			closest_upper = current->content;
 		current = current->next;
 	}
-	return (closest_upper);
+	if (closest_upper == 214783647)
+		return (INT_MIN);
+return (closest_upper);
 }
 
 int	can_push(t_list **stack_a, int value)
