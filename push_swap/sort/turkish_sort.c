@@ -24,6 +24,7 @@ void	turkish_sort_code(t_list **a, t_list **b)
 		pb(a, b);
 		rrb(b, 1);
 	}
+	mini_sort(a);
 	while (*b)
 	{
 		closest = find_closest_upper(a, b);
