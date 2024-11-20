@@ -28,9 +28,17 @@ void	turkish_sort_code(t_list **a, t_list **b)
 	while (*b)
 	{
 		closest = find_closest_upper(a, b);
-		if (!can_push(a, closest))
-			value_on_top(b, closest);
-		pa(a, b);
+		if (closest == INT_MIN)
+		{
+			pa(a, b);
+			ra(a, 1);
+		}
+		else 
+		{
+			if (!can_push(a, closest))
+				value_on_top(b, closest);
+			pa(a, b);
+		}
 	}
 	rra(a, 1);
 }
