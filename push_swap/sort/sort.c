@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/19 15:36:49 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 08:56:29 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_a(t_list **a)
 	int	size;
 	int	steps;
 
-	ft_min(b);
+	ft_min(a);
 	steps = 0;
 	size = ft_lstsize(*a);
 	if (!is_sort(a))
@@ -50,13 +50,13 @@ void	sort_a(t_list **a)
 		if (steps <= size / 2)
 		{
 			while (steps--)
-				ra(b, 1);
+				ra(a, 1);
 		}
 	}
 	else
 	{
 		while (steps++ < size)
-			rra(b, 1);
+			rra(a, 1);
 	}
 }
 
@@ -66,8 +66,8 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 	t_list	*current;
 	int		closest_upper;
 
-	first = (*b)->content;
-	current = *a;
+	first = (*stack_b)->content;
+	current = *stack_a;
 	closest_upper = 2147483647;
 	while (current)
 	{
@@ -83,7 +83,7 @@ int	can_push(t_list **stack_a, t_list **stack_b)
 	int	closest;
 
 	closest = find_closest_upper(stack_a, stack_b);
-	if (closest == (*a)->content)
+	if (closest == (*stack_a)->content)
 		return (1);
 	return (0);
 }

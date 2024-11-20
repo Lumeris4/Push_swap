@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:42 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/19 12:26:06 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:08:22 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,6 @@ static void	for_free(t_list *stack_a, int argc, char **argv)
 	}
 }
 
-static void	sort_stack(t_list **stack_a, t_list **stack_b, int argc)
-{
-	if (argc == 3)
-		sa(stack_a, 1);
-	else if (argc == 4)
-		mini_sort(stack_a);
-	else
-		turkish_sort(stack_a, stack_b);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -63,8 +53,7 @@ int	main(int argc, char **argv)
 	}
 	init_stack(&stack_a, argv, argc);
 	if (!is_sort(&stack_a))
-		sort_stack(&stack_a, &stack_b, argc);
-	print_list(stack_a);
+		turkish_sort(&stack_a, &stack_b);
 	for_free(stack_a, argc, argv);
 	return (0);
 }

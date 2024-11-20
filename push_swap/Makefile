@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = errors/check_errors.c errors/check_letter_in_number.c \
        errors/too_long.c methods/push.c methods/reverse_rotate.c \
        methods/reverse.c methods/swap.c init.c sort/mini_sort.c \
-	   sort/min_and_max.c main.c sort/sort.c sort/get_steps.c
+	   sort/min_and_max.c main.c sort/sort.c sort/get_steps.c \
+	   sort/cheapest.c sort/turkish_sort.c
 OBJ = $(SRCS:.c=.o)
 
 LIBFTDIR = libft
