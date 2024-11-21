@@ -36,7 +36,7 @@ void	turkish_sort_code(t_list **a, t_list **b)
 		else 
 		{
 			if (!can_push(a, closest))
-				value_on_top(b, closest);
+				rra(a, 1);
 			pa(a, b);
 		}
 	}
