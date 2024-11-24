@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 14:21:30 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:16:11 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	ft_min(t_list **stack);
 int		get_steps_to_min(t_list **b);
 int		get_steps_to_max(t_list **a);
 void	sort_b(t_list **b);
-void	sort_a(t_list **a);
 int		find_closest_upper(t_list **stack_a, t_list **stack_b);
 int		can_push(t_list **stack_a, int value);
 int		find_the_cheapest(t_list **stack_a, t_list **stack_b);

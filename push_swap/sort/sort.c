@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 14:21:18 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:38:10 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,6 @@ void	sort_b(t_list **b)
 		{
 			while (steps++ < size)
 				rrb(b, 1);
-		}
-	}
-}
-
-void	sort_a(t_list **a)
-{
-	int	size;
-	int	steps;
-
-	ft_min(a);
-	steps = 0;
-	size = ft_lstsize(*a);
-	while (!is_sort(a))
-	{
-		steps = get_steps_to_min(a);
-		if (steps <= size / 2)
-		{
-			while (steps--)
-				ra(a, 1);
-		}
-		else
-		{
-			while (steps++ < size)
-				rra(a, 1);
 		}
 	}
 }
@@ -88,14 +64,14 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 
 	first = (*stack_b)->content;
 	current = *stack_a;
-	closest_upper = 2147483647;
+	closest_upper = INT_MAX;
 	while (current)
 	{
 		if (current->content > first && current->content < closest_upper)
 			closest_upper = current->content;
 		current = current->next;
 	}
-	if (closest_upper == 214783647)
+	if (closest_upper == INT_MAX)
 		return (INT_MIN);
 return (closest_upper);
 }

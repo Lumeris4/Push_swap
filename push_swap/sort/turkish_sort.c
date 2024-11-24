@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:48:44 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/20 14:31:30 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:40:57 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void	turkish_sort_code(t_list **a, t_list **b)
 		}
 		else 
 		{
-			if (!can_push(a, closest))
+			while (!can_push(a, closest))
 				rra(a, 1);
 			pa(a, b);
 		}
 	}
-	rra(a, 1);
+	while (!is_sort(a))
+		rra(a, 1);
 }
 
 void	turkish_sort(t_list **a, t_list **b)
