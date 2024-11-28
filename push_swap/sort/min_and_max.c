@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 08:43:01 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/18 12:08:54 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:29:14 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	ft_min(t_list **stack)
 	(*stack)->min_value = min->content;
 }
 
-void	ft_max(t_list **stack)
+int	ft_max(t_list **stack)
 {
 	t_list	*max;
 	t_list	*current;
 
 	if (!stack || !*stack)
-		return ;
+		return 0;
 	max = *stack;
 	current = (*stack)->next;
 	while (current)
@@ -48,4 +48,6 @@ void	ft_max(t_list **stack)
 	}
 	(*stack)->max_node = max;
 	(*stack)->max_value = max->content;
+	return (max->content);
 }
+
