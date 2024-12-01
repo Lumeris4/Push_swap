@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/28 14:12:23 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/01 15:17:25 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ int		get_steps_to_value(t_list **b, int value);
 void	value_on_top(t_list **a ,int value);
 void	turkish_sort_code(t_list **a, t_list **b);
 void	value_on_top_b(t_list **b, int value);
+int		find_closest_lower(t_list **stack_a, t_list **stack_b);
 #endif

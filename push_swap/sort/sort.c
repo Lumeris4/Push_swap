@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/28 14:11:47 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/01 15:17:51 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ void	value_on_top_b(t_list **b, int value)
 
 	steps = 0;
 	size = ft_lstsize(*b);
-	if ((*b)->next)
-		if (value == (*b)->next->content)
-			sb(b,1);
 	steps = get_steps_to_value(b, value);
 	if (steps <= size / 2)
 	{
@@ -89,4 +86,24 @@ int	can_push(t_list **stack_a, int value)
 	if (value == (*stack_a)->content)
 		return (1);
 	return (0);
+}
+
+int	find_closest_lower(t_list **stack_a, t_list **stack_b)
+{
+	int		first;
+	t_list	*current;
+	int		closest_upper;
+
+	first = (*stack_b)->content;
+	current = *stack_a;
+	closest_upper = INT_MIN;
+	while (current)
+	{
+		if (current->content < first && current->content > closest_upper)
+			closest_upper = current->content;
+		current = current->next;
+	}
+	if (closest_upper == INT_MIN)
+		return (INT_MAX);
+	return (closest_upper);
 }
