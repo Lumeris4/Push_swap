@@ -6,19 +6,19 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 08:43:01 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/28 12:29:14 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:04:58 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_min(t_list **stack)
+int	ft_min(t_list **stack)
 {
 	t_list	*min;
 	t_list	*current;
 
 	if (!stack || !*stack)
-		return ;
+		return (0);
 	min = *stack;
 	current = (*stack)->next;
 	while (current)
@@ -29,6 +29,7 @@ void	ft_min(t_list **stack)
 	}
 	(*stack)->min_node = min;
 	(*stack)->min_value = min->content;
+	return (min->content);
 }
 
 int	ft_max(t_list **stack)
@@ -37,7 +38,7 @@ int	ft_max(t_list **stack)
 	t_list	*current;
 
 	if (!stack || !*stack)
-		return 0;
+		return (0);
 	max = *stack;
 	current = (*stack)->next;
 	while (current)
@@ -50,4 +51,3 @@ int	ft_max(t_list **stack)
 	(*stack)->max_value = max->content;
 	return (max->content);
 }
-

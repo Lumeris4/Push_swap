@@ -6,20 +6,11 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/01 15:17:51 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:27:27 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	sort_b(t_list **b)
-{
-	int max;
-	
-	max = ft_max(b);
-	if (max != (*b)->content)
-		value_on_top_b(b,max);
-}
 
 void	value_on_top(t_list **a, int value)
 {
@@ -77,7 +68,7 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 		current = current->next;
 	}
 	if (closest_upper == INT_MAX)
-		return (INT_MIN);
+		return (ft_min(stack_b));
 	return (closest_upper);
 }
 
@@ -104,6 +95,6 @@ int	find_closest_lower(t_list **stack_a, t_list **stack_b)
 		current = current->next;
 	}
 	if (closest_upper == INT_MIN)
-		return (INT_MAX);
+		return (ft_max(stack_a));
 	return (closest_upper);
 }

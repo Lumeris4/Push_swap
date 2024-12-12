@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/01 15:17:25 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:27:37 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,15 @@ int		is_sort(t_list **stack_a);
 int		is_sort_descending(t_list **stack_a);
 void	mini_sort(t_list **stack_a);
 int		ft_max(t_list **stack);
-void	ft_min(t_list **stack);
+int		ft_min(t_list **stack);
 int		get_steps_to_min(t_list **b);
 int		get_steps_to_max(t_list **a);
-void	sort_b(t_list **b);
 int		find_closest_upper(t_list **stack_a, t_list **stack_b);
 int		can_push(t_list **stack_a, int value);
 int		find_the_cheapest(t_list **stack_a, t_list **stack_b);
 void	turkish_sort(t_list **a, t_list **b);
 int		get_steps_to_value(t_list **b, int value);
-void	value_on_top(t_list **a ,int value);
+void	value_on_top(t_list **a, int value);
 void	turkish_sort_code(t_list **a, t_list **b);
 void	value_on_top_b(t_list **b, int value);
 int		find_closest_lower(t_list **stack_a, t_list **stack_b);
