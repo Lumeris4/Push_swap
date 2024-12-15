@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 10:48:44 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/15 16:05:01 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:35:03 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ void	turkish_sort_code(t_list **a, t_list **b)
 {
 	int	cheapest;
 	int	closest;
-	//int	closest_lower;
 
 	while (ft_lstsize(*a) > 3)
-	{
 		pb(a, b);
-	}
 	mini_sort(a);
 	while (*b)
 	{
@@ -46,11 +43,5 @@ void	turkish_sort(t_list **a, t_list **b)
 	else if (ft_lstsize(*a) == 3)
 		mini_sort(a);
 	else
-	{
-		pb(a, b);
-		pb(a, b);
-		if ((*b)->content < (*b)->next->content)
-			sb(b, 1);
 		turkish_sort_code(a, b);
-	}
 }

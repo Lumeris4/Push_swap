@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:36:47 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/19 12:36:46 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:37:52 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	init_stack(t_list **stack_a, char **argv, int argc)
 		ft_lstadd_back(stack_a, ft_lstnew(argv_temp));
 		i++;
 	}
-	(*stack_a)->size = ft_lstsize(*stack_a);
 }
 
 int	is_sort(t_list **stack_a)
@@ -40,22 +39,6 @@ int	is_sort(t_list **stack_a)
 	{
 		valeur_suivante = parcours->next;
 		if (parcours->content > valeur_suivante->content)
-			return (0);
-		parcours = parcours->next;
-	}
-	return (1);
-}
-
-int	is_sort_descending(t_list **stack_a)
-{
-	t_list	*parcours;
-	t_list	*valeur_suivante;
-
-	parcours = *stack_a;
-	while (parcours && parcours->next)
-	{
-		valeur_suivante = parcours->next;
-		if (parcours->content < valeur_suivante->content)
 			return (0);
 		parcours = parcours->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:40:13 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/12 09:27:37 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:40:33 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,8 @@ void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	init_stack(t_list **stack_a, char **argv, int argc);
 int		is_sort(t_list **stack_a);
-int		is_sort_descending(t_list **stack_a);
 void	mini_sort(t_list **stack_a);
-int		ft_max(t_list **stack);
 int		ft_min(t_list **stack);
-int		get_steps_to_min(t_list **b);
-int		get_steps_to_max(t_list **a);
 int		find_closest_upper(t_list **stack_a, t_list **stack_b);
 int		can_push(t_list **stack_a, int value);
 int		find_the_cheapest(t_list **stack_a, t_list **stack_b);

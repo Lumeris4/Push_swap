@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/15 16:15:09 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:38:27 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,4 @@ int	can_push(t_list **stack_a, int value)
 	if (value == (*stack_a)->content)
 		return (1);
 	return (0);
-}
-
-int	find_closest_lower(t_list **stack_a, t_list **stack_b)
-{
-	int		first;
-	t_list	*current;
-	int		closest_upper;
-
-	first = (*stack_b)->content;
-	current = *stack_a;
-	closest_upper = INT_MIN;
-	while (current)
-	{
-		if (current->content < first && current->content > closest_upper)
-			closest_upper = current->content;
-		current = current->next;
-	}
-	if (closest_upper == INT_MIN)
-		return (ft_max(stack_a));
-	return (closest_upper);
 }

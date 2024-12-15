@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 08:52:30 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/13 09:15:55 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:35:28 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,3 @@ int	find_the_cheapest(t_list **stack_a, t_list **stack_b)
 	}
 	return (best_value);
 }
-

@@ -6,20 +6,17 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:32:48 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/11/19 11:21:21 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:53:31 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-static int	ft_isdigit_str(char *str, int argc)
+static int	ft_isdigit_str(char *str)
 {
 	int	i;
 
-	if (argc == 2)
-		i = 0;
-	else
-		i = 1;
+	i = 0;
 	if (str[0] == '-' && ft_isdigit(str[1]))
 		i++;
 	while (str[i])
@@ -41,7 +38,7 @@ int	check_letter_in_number(char **argv, int argc)
 		i = 1;
 	while (argv[i])
 	{
-		if (!ft_isdigit_str(argv[i], argc))
+		if (!ft_isdigit_str(argv[i]))
 			return (0);
 		i++;
 	}

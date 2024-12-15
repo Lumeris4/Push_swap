@@ -21,11 +21,6 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-	struct s_list	*min_node;
-	int				size;
-	int				min_value;
-	struct s_list	*max_node;
-	int				max_value;
 }					t_list;
 
 # ifndef BUFFER_SIZE
