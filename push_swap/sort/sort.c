@@ -6,7 +6,7 @@
 /*   By: lelanglo <lelanglo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:24:16 by lelanglo          #+#    #+#             */
-/*   Updated: 2024/12/12 09:27:27 by lelanglo         ###   ########.fr       */
+/*   Updated: 2024/12/15 16:15:09 by lelanglo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	find_closest_upper(t_list **stack_a, t_list **stack_b)
 		current = current->next;
 	}
 	if (closest_upper == INT_MAX)
-		return (ft_min(stack_b));
+		return (ft_min(stack_a));
 	return (closest_upper);
 }
 
